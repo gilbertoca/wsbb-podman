@@ -18,6 +18,7 @@ start:
 		-e USER_UID=$(USER_UID) \
 		-e USER_GID=$(USER_GID) \
 		-v "$(HOME)/.Xauthority:/home/user/.Xauthority:ro" \
+		-v "$(HOME)/Downloads:/home/user/Downloads" \
 		-v "/tmp/.X11-unix:/tmp/.X11-unix:ro" \
 		-v "/etc/machine-id:/etc/machine-id:ro" \
 		$(IMG) seg.bb.com.br
