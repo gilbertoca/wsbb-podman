@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV USER_UID=1000
@@ -13,7 +13,7 @@ RUN ln -sf /bin/true /usr/bin/chfn && apt-get update && apt-get install -y \
     libgtk2.0-0 \
     dbus-x11 \
     yad \
-    libcurl3 \
+    libcurl4 \
     libdbus-1.3 \
     libxss1 \
     lsb-release \
@@ -24,7 +24,7 @@ RUN ln -sf /bin/true /usr/bin/chfn && apt-get update && apt-get install -y \
     systemd-sysv
 
 
-ADD https://cloud.gastecnologia.com.br/cef/warsaw/install/GBPCEFwr64.deb /src/warsaw.deb
+ADD https://cloud.gastecnologia.com.br/bb/downloads/ws/warsaw_setup64.deb /src/warsaw.deb
 RUN groupadd -g ${USER_GID} user && useradd -u ${USER_UID} -g ${USER_GID} -ms /bin/bash user && chown -R user.user /home/user
 
 #RUN dpkg -i /w.deb || exit 0
